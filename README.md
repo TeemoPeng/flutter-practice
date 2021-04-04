@@ -45,3 +45,57 @@ Flutter 学习笔记
       distributionUrl=file\:/D:/software/gradle/gradle-7.0-rc-2-all.zip
       ```
 
+2. 如果不能访问国外网站，请使用设置镜像
+   在项目中设置，android -> build.gradle 文件
+   将repositories 中 google(),jcenter()替换成：
+
+   ```
+   maven { url 'https://maven.aliyun.com/repository/google' }
+   maven { url 'https://maven.aliyun.com/repository/jcenter' }
+   maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+   ```
+
+   完整代码如下：
+
+   ```
+   buildscript {
+       ext.kotlin_version = '1.3.50'
+       repositories {
+           // google()
+           // jcenter()
+           maven { url 'https://maven.aliyun.com/repository/google' }
+           maven { url 'https://maven.aliyun.com/repository/jcenter' }
+           maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+       }
+   
+       dependencies {
+           classpath 'com.android.tools.build:gradle:4.1.0'
+           classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+       }
+   }
+   
+   allprojects {
+       repositories {
+           // google()
+           // jcenter()
+           maven { url 'https://maven.aliyun.com/repository/google' }
+           maven { url 'https://maven.aliyun.com/repository/jcenter' }
+           maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+       }
+   }
+   
+   rootProject.buildDir = '../build'
+   subprojects {
+       project.buildDir = "${rootProject.buildDir}/${project.name}"
+   }
+   subprojects {
+       project.evaluationDependsOn(':app')
+   }
+   
+   task clean(type: Delete) {
+       delete rootProject.buildDir
+   }
+   
+   ```
+
+   
