@@ -1,40 +1,42 @@
 import 'package:flutter/material.dart';
-
+import 'package:english_words/english_words.dart';
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hello You ~',
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Hello You '),
-          ),
-          body: Center(
-            // child: Text(
-            //   '世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大',
-            //   textAlign: TextAlign.start,
-            //   maxLines: 2,
-            //   overflow: TextOverflow.fade,
-            //   style: TextStyle(
-            //       fontSize: 30.0, color: Color.fromARGB(255, 255, 150, 150)),
-            // ),
-
-            child: Container(
-              child: new Text('Hi ~',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.white
-                )
-              ),
-              alignment: Alignment.topLeft,
-              width: 500.0,
-              height: 400.0,
-              color: Colors.blue
+    // final wordPair = new WordPair.random();
+    return new MaterialApp(
+      title: 'Welcome to Flutter',
+      home: new Scaffold(
+        appBar: AppBar(
+          title: new Text('Welcome to Flutter')
+        ),
+        body: new Container(          
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: 20.0,
+              top: 20.0,
+              right: 20.0,
+              bottom: 20.0
             ),
-          )
+            child: new RandomWords()
+          ),
         )
+      )
     );
+  }
+}
+
+class RandomWords extends StatefulWidget{
+  @override
+  createState() => new RandomWordsState();
+}
+
+class RandomWordsState extends State{
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = new WordPair.random();
+    return new Text(wordPair.asCamelCase);
   }
 }
