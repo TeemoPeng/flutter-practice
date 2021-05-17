@@ -12,15 +12,6 @@ class MyApp extends StatelessWidget {
             title: Text('Hello You '),
           ),
           body: Center(
-            // child: Text(
-            //   '世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大世界这么大',
-            //   textAlign: TextAlign.start,
-            //   maxLines: 2,
-            //   overflow: TextOverflow.fade,
-            //   style: TextStyle(
-            //       fontSize: 30.0, color: Color.fromARGB(255, 255, 150, 150)),
-            // ),
-
             child: Container(
               child: new Text('Hi ~',
                 style: TextStyle(

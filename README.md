@@ -99,3 +99,6 @@ Flutter 学习笔记
    ```
 
    
+
+3. adb.exe已停止工作
+   在命令行输入：netstat -aon|findstr "5037"，找到LISTENING 对应的PID，然后打开任务管理器 -> 进程，点击菜单“查看” -> "选择列"，勾选PID，找到对应PID的进程，将其杀死
